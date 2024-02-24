@@ -1,5 +1,13 @@
 INSERT INTO
-         emp_info(emp_id, emp_password, emp_name, phone, email, department_code, position_code, emp_identification, payment_code)
+         emp_info(emp_id,             -- 사용자ID  == varchar
+                  emp_password,       -- 사용자PWD  == varchar
+                  emp_name,           -- 사용자 이름  == varchar
+                  phone,              -- 휴대전화  == varchar
+                  email,              -- 이메일  == varchar
+                  department_code,    -- 부서코드  == varchar
+                  position_code,      -- 직책코드  == varchar
+                  emp_identification, -- 급여코드  == varchar
+                  payment_code)       -- 구분  == varchar
 VALUES ('user001',  'password01',  '남효정',  '010-1234-5678', 'namhyojung@ohgiraffers.com',  'DP1',  'PS1',  'ADMIN',  'PM1'),
 	   ('user002',  'password02',  '박명수',  '010-9876-5432', 'parkmyungsoo@ohgiraffers.com',  'DP2',  'PS3',  'EMP',  'PM3'),
 	   ('user003',  'password03',  '정준하',  '010-2468-1357', 'jungjoonha@ohgiraffers.com',  'DP3',  'PS3',  'EMP',  'PM3'),
@@ -30,5 +38,6 @@ VALUES ('user001',  'password01',  '남효정',  '010-1234-5678', 'namhyojung@oh
 	   ('user028',  'password28',  '어른유',  '010-2738-9164', 'uhreunyoo@ohgiraffers.com', 'DP3', 'PS4', 'EMP', 'PM4'),
  	   ('user029',  'password29',  '전소민',  '010-4862-9371', 'jeonsomin@ohgiraffers.com', 'DP4', 'PS5', 'EMP', 'PM5'),
 	   ('user030',  'password30',  '양세찬',  '010-7943-6821', 'yangsechan@ohgiraffers.com', 'DP5', 'PS4', 'EMP', 'PM4');
+	-- (사용자ID, 사용자PWD, 사용자 이름, 휴대전화, 이메일, 부서코드, 직책코드, 급여코드, 구분)
 
 SELECT * FROM emp_info;
