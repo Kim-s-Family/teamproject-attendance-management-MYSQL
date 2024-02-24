@@ -36,7 +36,7 @@ CREATE TABLE `check_date`
 (
     `date_code`    INTEGER NOT NULL COMMENT '날짜코드',
     `year_month_day`    DATE NOT NULL COMMENT '날짜',
-    `month_code`    VARCHAR(100) NOT NULL COMMENT '월별코드'
+    `month_code`    INTEGER NOT NULL COMMENT '월별코드'
 ) COMMENT = '날짜';
 
 ALTER TABLE `check_date`
@@ -52,7 +52,7 @@ CREATE TABLE `attendance_record`
     `arrival_at_work`    CHAR NOT NULL COMMENT '출근',
     `leave_work`    CHAR NOT NULL COMMENT '퇴근',
     `late_work`    CHAR NOT NULL COMMENT '지각',
-    `vacation`    VARCHAR(100) NOT NULL COMMENT '휴가',
+    `vacation`    CHAR NOT NULL COMMENT '휴가',
     `day_off`    CHAR NOT NULL COMMENT '결근',
  PRIMARY KEY ( `attendance_code` )
 ) COMMENT = '근태기록';
