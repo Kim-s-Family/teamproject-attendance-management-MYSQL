@@ -1,3 +1,15 @@
+use attendancemanagementdb;
+
+DROP TABLE attendance_record;
+DROP TABLE check_date;
+DROP TABLE check_month;
+DROP TABLE compensation;
+DROP TABLE department;
+DROP TABLE emp_info;
+DROP TABLE emp_position;
+DROP TABLE evaluation_list;
+DROP TABLE payment;
+
 DROP TABLE `check_month`;
 
 CREATE TABLE `check_month`
@@ -48,17 +60,15 @@ DROP TABLE `attendance_record`;
 CREATE TABLE `attendance_record`
 (
     `attendance_code`    VARCHAR(100) NOT NULL COMMENT '근태코드',
+    `date_code`    INTEGER NOT NULL COMMENT '날짜코드',
     `emp_id`    VARCHAR(100) NOT NULL COMMENT '사용자ID',
     `arrival_at_work`    CHAR NOT NULL COMMENT '출근',
     `leave_work`    CHAR NOT NULL COMMENT '퇴근',
     `late_work`    CHAR NOT NULL COMMENT '지각',
-    `vacation`    CHAR NOT NULL COMMENT '휴가',
+    `vacation`    VARCHAR(100) NOT NULL COMMENT '휴가',
     `day_off`    CHAR NOT NULL COMMENT '결근',
  PRIMARY KEY ( `attendance_code` )
 ) COMMENT = '근태기록';
-
-CREATE UNIQUE INDEX `attendance_record_PK` ON `attendance_record`
-( `attendance_code` );
 
 ALTER TABLE `attendance_record`
  ADD CONSTRAINT `attendance_record_PK` PRIMARY KEY ( `attendance_code` );
@@ -86,10 +96,10 @@ DROP TABLE `compensation`;
 CREATE TABLE `compensation`
 (
     `emp_id`    VARCHAR(100) NOT NULL COMMENT '사용자ID',
+    `month_code`    VARCHAR(100) NOT NULL COMMENT '월별코드',
     `compensation_status`    CHAR NOT NULL COMMENT '보상여부',
     `penalty_status`    CHAR NOT NULL COMMENT '패널티여부',
     `penalty_score_sum`    INTEGER NOT NULL COMMENT '패널티스코어합계',
-    `month_code`    VARCHAR(100) NOT NULL COMMENT '월별코드',
  PRIMARY KEY ( `emp_id` )
 ) COMMENT = '보상';
 
@@ -144,20 +154,15 @@ DROP TABLE `evaluation_list`;
 
 CREATE TABLE `evaluation_list`
 (
+    `evaluation_code`    VARCHAR(100) NOT NULL COMMENT '평가코드',
+    `emp_id`    VARCHAR(100) NOT NULL COMMENT '사용자ID',
+    `attendance_code`    VARCHAR(100) NOT NULL COMMENT '근태코드',
     `penalty_factor`    VARCHAR(100) COMMENT '감점요인',
     `penalty_score`    INTEGER COMMENT '패널티 점수',
-    `evaluation_code`    VARCHAR(100) NOT NULL COMMENT '평가코드',
-    `attendance_code`    VARCHAR(100) NOT NULL COMMENT '근태코드',
-    `emp_id`    VARCHAR(100) NOT NULL COMMENT '사용자ID',
  PRIMARY KEY ( `evaluation_code` )
 ) COMMENT = '평가항목';
 
-CREATE UNIQUE INDEX `evaluation_list_PK` ON `evaluation_list`
-( `evaluation_code` );
-
 ALTER TABLE `evaluation_list`
  ADD CONSTRAINT `evaluation_list_PK` PRIMARY KEY ( `evaluation_code` );
-
-
 
 
