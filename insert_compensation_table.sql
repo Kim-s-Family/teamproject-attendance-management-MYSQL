@@ -1,41 +1,48 @@
 INSERT INTO
 		   compensation(emp_id,              -- 사용자ID = varchar
+                        month_code,           -- 월별코드 = integer
                         compensation_status, -- 보상여부 = char
                         penalty_status,      -- 페널티여부 = char
-                        penalty_score_sum,   -- 페널티 점수 합계 = integer
-						month_code)          -- 월별코드 = integer
+                        penalty_score_sum   -- 페널티 점수 합계 = integer
+						)          
 		VALUES
-    ('user001','Y','N',0,1),
-    ('user002','N','Y',-1,1),
-    ('user003','Y','N',0,1),
-    ('user004','N','Y',-3,1),
-    ('user005','Y','N',0,1),
-    ('user006','N','Y',-1,1),
-    ('user007','Y','N',0,1),
-    ('user008','N','Y',-3,1),
-    ('user009','Y','N',0,1),
-    ('user010','N','Y',-1,1),
-    ('user011','Y','N',0,1),
-    ('user012','N','Y',-3,1),
-    ('user013','Y','N',0,1),
-    ('user014','N','Y',-1,1),
-    ('user015','Y','N',0,1),
-    ('user016','N','Y',-3,1),
-    ('user017','Y','N',0,1),
-    ('user018','N','Y',-1,1),
-    ('user019','Y','N',0,1),
-    ('user020','N','Y',-3,1),
-    ('user021','Y','N',0,1),
-    ('user022','N','Y',-1,1),
-    ('user023','Y','N',0,1),
-    ('user024','N','Y',-3,1),
-    ('user025','Y','N',0,1),
-    ('user026','N','Y',-1,1),
-    ('user027','Y','N',0,1),
-    ('user028','N','Y',-3,1),
-    ('user029','Y','N',0,1),
-    ('user030','N','Y',-1,1);
--- (사용자ID ,보상여부,페널티여부,페널티점수합계,월별코드)
-			 
+    ('user001', 1, 'Y', 'N', 0),
+    ('user002', 1, 'N', 'Y', -1),
+    ('user003', 1, 'N', 'Y', -2),
+    ('user004', 1, 'N', 'Y', -5),
+    ('user005', 1, 'N', 'Y', -1),
+    ('user006', 1, 'N', 'Y', -1),
+    ('user007', 1, 'N', 'Y', -3),
+    ('user008', 1, 'Y', 'N', 0),
+    ('user009', 1, 'Y', 'N', 0),
+    ('user010', 1, 'N', 'Y', -1),
+    ('user011', 1, 'N', 'Y', -7),
+    ('user012', 1, 'N', 'Y', -1),
+    ('user013', 1, 'Y', 'N', 0),
+    ('user014', 1, 'N', 'Y', -1),
+    ('user015', 1, 'Y', 'N', 0),
+    ('user016', 1, 'Y', 'N', 0),
+    ('user017', 1, 'N', 'Y', -3),
+    ('user018', 1, 'Y', 'N', 0),
+    ('user019', 1, 'Y', 'N', 0),
+    ('user020', 1, 'N', 'Y', -2),
+    ('user021', 1, 'Y', 'N', 0),
+    ('user022', 1, 'N', 'Y', -1),
+    ('user023', 1, 'N', 'Y', -4),
+    ('user024', 1, 'Y', 'N', 0),
+    ('user025', 1, 'Y', 'N', 0),
+    ('user026', 1, 'N', 'Y', -1),
+    ('user027', 1, 'Y', 'N', 0),
+    ('user028', 1, 'N', 'Y', -2),
+    ('user029', 1, 'N', 'Y', -5),
+    ('user030', 1, 'N', 'Y', -1);
 
-SELECT * FROM compensation;
+
+
+-- (사용자ID ,보상여부,페널티여부,페널티점수합계,월별코드)
+
+DELETE FROM compensation;			 
+
+SELECT * FROM compensation
+     ORDER BY penalty_score_sum;
+
